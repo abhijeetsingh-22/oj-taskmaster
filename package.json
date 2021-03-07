@@ -1,0 +1,16 @@
+{
+  "name": "oj-taskmaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "taskmaster.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./taskmaster.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.7.0",
+    "shelljs": "^0.8.4"
+  }
+}
