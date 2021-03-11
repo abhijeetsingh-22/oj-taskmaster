@@ -2,6 +2,7 @@ const config = require('./config');
 const amqp = require('amqplib/callback_api');
 const RunJob = require('./tasks/jobs/run');
 const execute = require('./tasks');
+const SubmitJob = require('./tasks/jobs/submit');
 
 const jobQ = config.JOB_QUEUE;
 const successQ = config.SUCCESS_QUEUE;
@@ -24,6 +25,9 @@ amqp.connect(rabbitURI, (err, connection) => {
         switch (payload.scenario) {
           case 'run':
             job = new RunJob(payload);
+            break;
+          case 'submit':
+            job = new SubmitJob(payload);
             break;
           default:
             throw new Error('Scenario not declared');
